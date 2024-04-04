@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".RecuperaPass">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivHome"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:src="@drawable/resetpassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/shapeRound"
+        tools:ignore="ImageContrastCheck" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvRecPass"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivHome"
+        android:textColor="@color/rojo"
+        android:fontFamily="@font/baumans"
+        android:textStyle="bold"
+        android:textSize="27sp"
+        android:layout_marginTop="30dp"
+        android:text="@string/recPassword1"
+        tools:ignore="MissingConstraints" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvRecPass2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/azul"
+        android:fontFamily="@font/baumans"
+        android:textAlignment="inherit"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintLeft_toLeftOf="@id/tvRecPass"
+        app:layout_constraintRight_toRightOf="@id/tvRecPass"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecPass"
+        android:layout_marginTop="25dp"
+        android:text="@string/recPassword2"
+        tools:ignore="MissingConstraints,VisualLintLongText" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etEmailRecupera"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="25dp"
+        android:hint="@string/correo"
+        app:errorEnabled="true"
+        app:errorContentDescription="Debe de introducir un correo válido"
+        app:errorTextColor="#BF0B0B"
+        app:startIconDrawable="@drawable/email"
+        app:startIconTint="#0D149F"
+        app:endIconMode="clear_text"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecPass2"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMailRecupera2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textAutoComplete"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btRecuperar"
+        style="@style/shapeRound"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="25sp"
+        android:backgroundTint="@color/naranja"
+        android:scaleType="fitCenter"
+        android:text="@string/btRecPass"
+        android:textColor="#BF360C"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmailRecupera"
+        tools:ignore="TextSizeCheck" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

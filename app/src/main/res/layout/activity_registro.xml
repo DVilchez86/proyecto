@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".Registro">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivCabecera"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:src="@drawable/registrate"
+            android:scaleType="centerInside"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/todo" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelPersonales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/ivCabecera"
+            android:text="@string/personales"
+            android:textColor="@color/azul"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <View
+            android:id="@+id/margin1"
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/labelPersonales"
+            android:background="#000"
+            tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/labelNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/nombre"
+        android:textColor="@color/azul"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/baumans"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/margin1"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etNombre1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/labelNombre"
+        app:layout_constraintRight_toRightOf="parent"
+        app:errorEnabled="true"
+        app:errorContentDescription="Debe de introducir un correo válido"
+        app:errorTextColor="#BF0B0B"
+        app:endIconMode="clear_text"
+        android:textColorHint="@color/white"
+        app:startIconDrawable="@drawable/identidad"
+        app:hintTextColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/white"
+        app:boxBackgroundColor="@color/colorTransparente"
+        app:layout_constraintTop_toTopOf="@+id/labelNombre"
+        app:layout_constraintBottom_toBottomOf="@+id/labelNombre"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNombre2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textAutoComplete"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioGroup
+            android:id="@+id/rgRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/etNombre1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            tools:ignore="MissingConstraints">
+
+            <RadioButton
+                android:id="@+id/rbFisica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personFisica"
+                android:textColor="@color/azul"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/baumans"
+                android:checked="true"
+                />
+            <RadioButton
+                android:id="@+id/rbEmpresa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empresa"
+                android:textColor="@color/azul"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/baumans"
+                 />
+
+
+        </RadioGroup>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/labelDni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dni"
+        android:textColor="@color/azul"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/baumans"
+        android:layout_marginTop="30dp"
+        app:fontFamily="@font/baumans"
+        app:layout_constraintLeft_toLeftOf="@id/labelNombre"
+        app:layout_constraintTop_toBottomOf="@+id/rgRegistro"
+        tools:ignore="MissingConstraints"
+ />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etDni1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:errorContentDescription="Debe de introducir un correo válido"
+            app:errorTextColor="#BF0B0B"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:layout_constraintBottom_toBottomOf="@+id/labelDni"
+            app:layout_constraintLeft_toRightOf="@+id/labelNombre"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/labelDni"
+            app:layout_constraintVertical_bias="0.4"
+            app:startIconDrawable="@drawable/security"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDni2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:inputType="textAutoComplete"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDireccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/direccion"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/baumans"
+            android:layout_marginTop="15dp"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@id/labelNombre"
+            app:layout_constraintTop_toBottomOf="@+id/etDni1"
+            tools:ignore="MissingConstraints"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etDireccion1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:errorContentDescription="Debe de introducir un correo válido"
+            app:errorTextColor="#BF0B0B"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:layout_constraintBottom_toBottomOf="@+id/labelDireccion"
+            app:layout_constraintLeft_toRightOf="@+id/labelNombre"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/labelDireccion"
+            app:layout_constraintVertical_bias="0.4"
+            app:startIconDrawable="@drawable/home"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDireccion2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:inputType="textAutoComplete"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelLocalidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/localidad"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/baumans"
+            android:layout_marginTop="15dp"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@id/labelDireccion"
+            app:layout_constraintTop_toBottomOf="@+id/etDireccion1"
+            tools:ignore="MissingConstraints"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLocalidad1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:errorContentDescription="Debe de introducir un correo válido"
+            app:errorTextColor="#BF0B0B"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:layout_constraintLeft_toLeftOf="@+id/etPassword1"
+            app:layout_constraintRight_toRightOf="@+id/etPassword1"
+            app:layout_constraintBottom_toBottomOf="@+id/labelLocalidad"
+            app:layout_constraintLeft_toRightOf="@+id/labelLocalidad"
+            app:layout_constraintTop_toTopOf="@+id/labelLocalidad"
+            app:layout_constraintVertical_bias="0.4"
+            app:startIconDrawable="@drawable/localidad"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLocalidad2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:inputType="textAutoComplete"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelCodPostal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/postal"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/baumans"
+            android:layout_marginTop="25dp"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@id/labelDireccion"
+            app:layout_constraintTop_toBottomOf="@+id/etLocalidad1"
+            tools:ignore="MissingConstraints"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPostal1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:errorContentDescription="Debe de introducir un correo válido"
+            app:errorTextColor="#BF0B0B"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:layout_constraintBottom_toBottomOf="@+id/labelCodPostal"
+            app:layout_constraintLeft_toRightOf="@+id/labelCodPostal"
+            app:layout_constraintLeft_toLeftOf="@+id/etLocalidad1"
+            app:layout_constraintRight_toRightOf="@+id/etLocalidad1"
+            app:layout_constraintTop_toTopOf="@+id/labelCodPostal"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPostal2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:inputType="number"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelProvincia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:fontFamily="@font/baumans"
+            android:text="@string/provincia"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@id/labelCodPostal"
+            app:layout_constraintTop_toBottomOf="@+id/etPostal1"
+            tools:ignore="MissingConstraints,TextContrastCheck" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etProvincia1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:errorContentDescription="Debe de introducir un correo válido"
+            app:errorTextColor="#BF0B0B"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:layout_constraintBottom_toBottomOf="@+id/labelProvincia"
+            app:layout_constraintRight_toRightOf="@+id/etPostal1"
+            app:layout_constraintLeft_toLeftOf="@+id/etPostal1"
+            app:layout_constraintTop_toTopOf="@+id/labelProvincia"
+            app:layout_constraintVertical_bias="0.4"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etProvincia2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textAutoComplete"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/baumans"
+            android:text="@string/telefono"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@id/labelDireccion"
+            app:layout_constraintTop_toBottomOf="@+id/etProvincia1"
+            tools:ignore="MissingConstraints,TextContrastCheck" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPhone1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:errorContentDescription="Debe de introducir un correo válido"
+            app:errorTextColor="#BF0B0B"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:layout_constraintBottom_toBottomOf="@+id/labelPhone"
+            app:layout_constraintLeft_toRightOf="@+id/labelNombre"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/labelPhone"
+            app:layout_constraintVertical_bias="0.4"
+            app:startIconDrawable="@drawable/phone"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPhone2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/baumans"
+            android:layout_marginTop="23sp"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@id/labelDireccion"
+            app:layout_constraintTop_toBottomOf="@+id/etPhone1"
+            tools:ignore="MissingConstraints"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etMail1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:errorContentDescription="Debe de introducir un correo válido"
+            app:errorTextColor="#BF0B0B"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:layout_constraintBottom_toBottomOf="@+id/labelMail"
+            app:layout_constraintLeft_toRightOf="@+id/labelNombre"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/labelMail"
+            app:layout_constraintVertical_bias="0.4"
+            app:startIconDrawable="@drawable/email"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMail2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:inputType="textEmailAddress"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelPassword"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/baumans"
+            android:text="@string/password"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@id/labelDireccion"
+            app:layout_constraintTop_toBottomOf="@+id/etMail1"
+            tools:ignore="MissingConstraints,TextContrastCheck" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPassword1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/etMail1"
+            app:layout_constraintLeft_toRightOf="@+id/labelPassword"
+            app:layout_constraintLeft_toLeftOf="@+id/etMail1"
+            app:layout_constraintRight_toRightOf="@id/etMail1"
+            app:layout_constraintTop_toTopOf="@+id/labelPassword"
+            app:layout_constraintBottom_toBottomOf="@+id/labelPassword"
+            android:layout_marginTop="5dp"
+            app:passwordToggleDrawable="@drawable/icon_selector"
+            app:passwordToggleEnabled="true"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:passwordToggleTint="@color/azul"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword2"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:autofillHints="password"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/etMail1"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelVehiculo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25sp"
+            app:layout_constraintTop_toBottomOf="@+id/labelPassword"
+            android:text="@string/vehiculos"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+        <View
+            android:id="@+id/margin2"
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/labelVehiculo"
+            android:background="#000"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbTipoVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/spTipo"
+            android:textColor="@color/azul"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@id/labelMail"
+            app:layout_constraintTop_toBottomOf="@id/labelVehiculo"
+            tools:ignore="MissingConstraints" />
+        <Spinner
+            android:id="@+id/spTipoVehiculo"
+            android:layout_width="115dp"
+            android:layout_height="48dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/lbTipoVehiculo"
+            app:layout_constraintRight_toRightOf="@id/lbMarcaVehiculo"
+            app:layout_constraintTop_toTopOf="@+id/lbTipoVehiculo"
+            app:layout_constraintBottom_toBottomOf="@+id/lbTipoVehiculo"
+            app:layout_constraintHorizontal_bias="0.25"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbMarcaVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbMarca"
+            app:fontFamily="@font/baumans"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/spTipoVehiculo"
+            app:layout_constraintTop_toTopOf="@+id/lbTipoVehiculo"
+            tools:ignore="MissingConstraints" />
+
+        <AutoCompleteTextView
+            android:id="@+id/etMarcaVehiculo"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:hint="Introduce marca"
+            android:textColorHint="@color/azul"
+            app:fontFamily="@font/baumans"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/lbMarcaVehiculo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/lbMarcaVehiculo"
+            app:layout_constraintBottom_toBottomOf="@+id/lbMarcaVehiculo"
+            tools:ignore="HardcodedText,MissingConstraints" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbModeloVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spModelo"
+            app:fontFamily="@font/baumans"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@+id/lbTipoVehiculo"
+            app:layout_constraintTop_toBottomOf="@+id/spTipoVehiculo"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+        <Spinner
+            android:id="@+id/spModeloVehiculo"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:layout_height="48dp"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@+id/spTipoVehiculo"
+            app:layout_constraintTop_toTopOf="@+id/lbModeloVehiculo"
+            app:layout_constraintBottom_toBottomOf="@+id/lbModeloVehiculo"
+            android:textStyle="bold"
+            android:spinnerMode="dialog"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbSerieVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbSerie"
+            app:fontFamily="@font/baumans"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@+id/lbModeloVehiculo"
+            app:layout_constraintTop_toBottomOf="@+id/lbGeneracionVehiculo"
+            android:layout_marginTop="35dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+        <Spinner
+            android:id="@+id/spSerieVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:visibility="invisible"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/lbSerieVehiculo"
+            app:layout_constraintTop_toTopOf="@+id/lbSerieVehiculo"
+            app:layout_constraintBottom_toBottomOf="@+id/lbSerieVehiculo"
+            android:textStyle="bold"
+            android:spinnerMode="dialog"
+            tools:ignore="MissingConstraints" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbGeneracionVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fontFamily="@font/baumans"
+            android:text="@string/spGeneracion"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintLeft_toLeftOf="@+id/lbModeloVehiculo"
+            app:layout_constraintTop_toBottomOf="@+id/spModeloVehiculo"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+        <Spinner
+            android:id="@+id/spGeneracionVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:visibility="invisible"
+            android:textSize="15sp"
+            android:textColor="@color/azul"
+            app:layout_constraintLeft_toLeftOf="@+id/etPassword1"
+            app:layout_constraintRight_toRightOf="@+id/etPassword1"
+            app:layout_constraintLeft_toRightOf="@+id/lbGeneracionVehiculo"
+            app:layout_constraintTop_toTopOf="@+id/lbGeneracionVehiculo"
+            app:layout_constraintBottom_toBottomOf="@+id/lbGeneracionVehiculo"
+            android:spinnerMode="dialog"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbAnnioVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spAnnio"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@+id/lbMarcaVehiculo"
+            app:layout_constraintLeft_toRightOf="@+id/spModeloVehiculo"
+            app:layout_constraintTop_toTopOf="@+id/lbModeloVehiculo"
+            app:layout_constraintTop_toBottomOf="@+id/lbModeloVehiculo"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etAnnio"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:hint="@string/lbAnnio"
+            android:textColorHint="@color/azul"
+            android:textSize="15sp"
+            android:textColor="@color/azul"
+            app:layout_constraintLeft_toRightOf="@+id/lbAnnioVehiculo"
+            app:layout_constraintLeft_toLeftOf="@+id/etMarcaVehiculo"
+            app:layout_constraintTop_toTopOf="@+id/lbAnnioVehiculo"
+            app:layout_constraintBottom_toBottomOf="@+id/lbAnnioVehiculo"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbMotorVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fontFamily="@font/baumans"
+            android:text="@string/spMotor"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@+id/lbSerieVehiculo"
+            app:layout_constraintTop_toBottomOf="@+id/lbSerieVehiculo"
+            android:layout_marginTop="35dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+        <Spinner
+            android:id="@+id/spMotorVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:visibility="invisible"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/lbMotorVehiculo"
+            app:layout_constraintTop_toTopOf="@+id/lbMotorVehiculo"
+            app:layout_constraintBottom_toBottomOf="@+id/lbMotorVehiculo"
+            android:textStyle="bold"
+            android:spinnerMode="dialog"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbCombustibleVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="@string/spCombustible"
+            android:textColor="@color/azul"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@+id/lbSerieVehiculo"
+            app:layout_constraintTop_toBottomOf="@+id/lbMotorVehiculo"
+            tools:ignore="MissingConstraints,TextContrastCheck" />
+        <Spinner
+            android:id="@+id/spCombustibleVehiculo"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:visibility="invisible"
+            android:spinnerMode="dialog"
+            android:textSize="15sp"
+            android:textColor="@color/azul"
+            app:layout_constraintLeft_toRightOf="@+id/lbCombustibleVehiculo"
+            app:layout_constraintTop_toTopOf="@+id/lbCombustibleVehiculo"
+            app:layout_constraintBottom_toBottomOf="@+id/lbCombustibleVehiculo"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbCambioVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spCambio"
+            app:fontFamily="@font/baumans"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/spCombustibleVehiculo"
+            app:layout_constraintTop_toBottomOf="@+id/lbMotorVehiculo"
+            app:layout_constraintTop_toTopOf="@+id/spCombustibleVehiculo"
+            app:layout_constraintBottom_toBottomOf="@+id/spCombustibleVehiculo"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+        <Spinner
+            android:id="@+id/spCambioVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:visibility="invisible"
+            android:spinnerMode="dialog"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toRightOf="@+id/lbCambioVehiculo"
+            app:layout_constraintTop_toTopOf="@+id/spCombustibleVehiculo"
+            app:layout_constraintBottom_toBottomOf="@+id/spCombustibleVehiculo"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelMatricula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/baumans"
+            android:text="@string/matricula"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@id/labelDireccion"
+            app:layout_constraintTop_toBottomOf="@+id/spCambioVehiculo"
+            tools:ignore="MissingConstraints,TextContrastCheck" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etMatricula1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:errorContentDescription="Debe de introducir un correo válido"
+            app:errorTextColor="#BF0B0B"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:layout_constraintBottom_toBottomOf="@+id/labelMatricula"
+            app:layout_constraintLeft_toRightOf="@+id/labelMatricula"
+            app:layout_constraintTop_toTopOf="@+id/labelMatricula"
+            app:layout_constraintLeft_toLeftOf="@+id/etMail1"
+            app:layout_constraintRight_toRightOf="@+id/etMail1"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMatricula2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:inputType="textAutoComplete"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelKms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baumans"
+            android:text="@string/kms"
+            android:textColor="@color/azul"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20sp"
+            app:fontFamily="@font/baumans"
+            app:layout_constraintLeft_toLeftOf="@+id/labelMatricula"
+            app:layout_constraintTop_toBottomOf="@+id/etMatricula1"
+            tools:ignore="MissingConstraints,TextContrastCheck" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etKms1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:errorTextColor="#BF0B0B"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:layout_constraintBottom_toBottomOf="@+id/labelKms"
+            app:layout_constraintLeft_toRightOf="@+id/labelKms"
+            app:layout_constraintTop_toTopOf="@+id/labelKms"
+            app:layout_constraintLeft_toLeftOf="@+id/etMail1"
+            app:layout_constraintRight_toRightOf="@+id/etMail1"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etKms2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:inputType="textAutoComplete"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/btRegistrar"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/registrateaqui"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etKms1"
+            tools:ignore="ContentDescription,HardcodedText,SpeakableTextPresentCheck"
+            android:contentDescription="TODO" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

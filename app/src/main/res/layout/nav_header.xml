@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:theme="@style/Theme.Material3.DayNight">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivNav"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/logotransparente"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/etDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@color/black"
+        android:layout_marginStart="20dp"
+        android:textSize="13sp"
+        android:text="Pol. Ind. Neinor, \n C / Newton, Ed. 2 - Nave 1, \n 28914 Leganés, Madrid"
+        android:textColor="@color/azul"
+        android:textStyle="bold"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/etTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:text="916 93 27 77"
+        android:layout_marginStart="15dp"
+        android:textSize="15sp"
+        android:textAppearance="@color/black"
+        android:textColor="#0E249F"
+        android:layout_marginBottom="16dp"/>
+
+</LinearLayout>

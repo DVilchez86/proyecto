@@ -1,6 +1,7 @@
 package com.example.proyectodam;
 
 import static android.R.layout.simple_dropdown_item_1line;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
@@ -9,28 +10,29 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Vehiculos {
     //Atributos de campo:
-    private int opcion;
     public static RequestQueue requestQueue;
     private Context context;
-    public static String combustibleUser = null, cambioUser = null, annioUser = null;
-    private static final String URL_BASICA = "http://192.168.1.39/pruebasphp/";
+    public String combustibleUser, cambioUser, matricula;
+    private String annioUser = null;
+    private static final String URL_BASICA = "https://www.focused-kepler.85-214-239-118.plesk.page/app/vehiculos/";
     private ArrayList<String> marcas, tipo, modelo, generacion, serie, motor, combustible, cambio;
     private ArrayList<Objeto> listadoMarcas, listadoTipo, listadoModelo, listadoGeneracion, listadoSerie, listadoMotor;
-    public static int id_tipo=0, id_marca=0, id_modelo=0, id_serie=0, id_generacion=0, id_motor=0, id_sistema=0, id_centralita=0;
+    public static int id_tipo=0, id_marca=0, id_modelo=0, id_serie=0, id_generacion=0, id_motor=0, kilometros=0;
 
     //Constructores:
     public Vehiculos(Context context){
@@ -38,86 +40,24 @@ public class Vehiculos {
         iniciarArrayListVehiculos();
         requestQueue = Volley.newRequestQueue(context.getApplicationContext());
     }
-
-
     //Métodos:
-    public void populateSpinner(Spinner spinner, String listaString) {
+    /*
+    El método rellenaSpinner lo utilizo para llamarlo desde dentro de los métodos Volley para ir rellenando los diferentes Spinner a utilizar:
+     */
+    public void rellenaSpinner(Spinner spinner, String listaString) {
         List<String> lista = new ArrayList<>();
-       lista.addAll(devuelveLista(listaString));
-
+        lista.addAll(devuelveLista(listaString));
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(context.getApplicationContext(), android.R.layout.simple_spinner_item, lista);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
         spinner.setSelection(0);
     }
-
-    public void consultaPredictivo(int variable, String url, String id_campo, String nombreCampo, String listadoObjeto, String textoSpinner, AutoCompleteTextView autoCompleteTextView) {
-        String parametro="?id=";
-        String URL1 = URL_BASICA +url + parametro+ variable;
-
-
-        if (variable!=9999) {
-
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL1, null, response -> {
-                int names = response.length();
-                devuelveLista(textoSpinner).add("Elije opcion");
-                for (int i = 0; i < names; i++) {
-                    try {
-                        JSONObject jsonObject = response.getJSONObject(String.valueOf(i + 1));
-                        String id = jsonObject.getString(id_campo);
-                        String marca = jsonObject.getString(nombreCampo);
-                        Objeto objeto = new Objeto();
-                        objeto.setId(Integer.parseInt(id));
-                        objeto.setDescripcion(marca);
-                        devuelveListadoObjeto(listadoObjeto).add(objeto);
-                        devuelveLista(textoSpinner).add(marca);
-                    } catch (JSONException e) {
-                        Log.i("TAG", "Se ha producido un fallo pese que responde el Json");
-                    }
-                }
-                ArrayAdapter<String> adapter = new ArrayAdapter(context.getApplicationContext(),
-                        simple_dropdown_item_1line, devuelveLista(textoSpinner));
-                autoCompleteTextView.setAdapter(adapter);
-
-            }, error -> Log.i("TAG", "Se ha producido un fallo en el Json de ".concat(textoSpinner)));
-            requestQueue.add(jsonObjectRequest);
-
-        } else {
-            if (variable == 9999) {
-                URL1 = url;
-            }
-            //PARA JSON DE VARIOS ARRAYS EN RESPUESTA:
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL1, null, response -> {
-                int names = response.length();
-                devuelveLista(textoSpinner).add("Elije opcion");
-                for (int i = 0; i < names; i++) {
-                    try {
-                        JSONObject jsonObject = response.getJSONObject(String.valueOf(i + 1));
-                        String id = jsonObject.getString(id_campo);
-                        String marca = jsonObject.getString(nombreCampo);
-                        Objeto objeto = new Objeto();
-                        objeto.setId(Integer.parseInt(id));
-                        objeto.setDescripcion(marca);
-                        devuelveListadoObjeto(listadoObjeto).add(objeto);
-                        devuelveLista(textoSpinner).add(marca);
-                    } catch (JSONException e) {
-                        Log.i("TAG", "Se ha producido un fallo pese que responde el Json");
-                    }
-                }
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(context.getApplicationContext(),
-                        simple_dropdown_item_1line, devuelveLista(textoSpinner));
-                autoCompleteTextView.setAdapter(adapter);
-            }, error -> Toast.makeText(context.getApplicationContext(), "Esta entrando en error", Toast.LENGTH_SHORT).show());
-            requestQueue.add(jsonObjectRequest);
-        }
-    }
-
+    /*
+    Método Consulta: Utilizado para obtener información de la base de datos para aquellas consultas que solo tienen un parámetro get:
+     */
     public void consulta(int variable, String url, String id_campo, String nombreCampo, String listaObjeto, String textoSpinner, Spinner spinner) {
         String URL1 = URL_BASICA +url + "?id=" +variable;
 
-        if(devuelveListadoObjeto(listaObjeto).size()>0){
-            devuelveListadoObjeto(listaObjeto).clear();
-        }
 
         if (variable == 0) {
             String urlSecundaria=URL_BASICA +url;
@@ -138,14 +78,9 @@ public class Vehiculos {
                         Log.i("TAG", "Se ha producido un fallo pese que responde el Json de tipo");
                     }
                 }
-                populateSpinner(spinner, textoSpinner);
+                rellenaSpinner(spinner, textoSpinner);
 
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.i("TAG", error.getCause().toString());
-                }
-            });
+            }, error -> Log.i("TAG", error.getCause().toString().concat( " fallo en consulta variable 0")));
             requestQueue.add(jsonArrayRequest);
             spinner.setVisibility(View.VISIBLE);
 
@@ -155,12 +90,10 @@ public class Vehiculos {
                 URL1 = url;
             }
             //PARA JSON DE VARIOS ARRAYS EN RESPUESTA:
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL1, null, response -> {
-                int names = response.length();
-                devuelveLista(textoSpinner).add("Elije opcion");
-                for (int i = 0; i < names; i++) {
+            JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(Request.Method.GET, URL1, null, response -> {
+                for (int i = 0; i < response.length(); i++) {
                     try {
-                        JSONObject jsonObject = response.getJSONObject(String.valueOf(i + 1));
+                        JSONObject jsonObject = response.getJSONObject(i);
                         String id = jsonObject.getString(id_campo);
                         String marca = jsonObject.getString(nombreCampo);
                         Objeto objeto = new Objeto();
@@ -168,36 +101,38 @@ public class Vehiculos {
                         objeto.setDescripcion(marca);
                         devuelveListadoObjeto(listaObjeto).add(objeto);
                         devuelveLista(textoSpinner).add(marca);
+
                     } catch (JSONException e) {
-                        Log.i("TAG", "Se ha producido un fallo pese que responde el Json");
+                        throw new RuntimeException(e);
                     }
                 }
+                rellenaSpinner(spinner, textoSpinner);
 
-                populateSpinner(spinner, textoSpinner);
-
-            }, error -> Toast.makeText(context.getApplicationContext(), "Esta entrando en error Json", Toast.LENGTH_SHORT).show());
-            requestQueue.add(jsonObjectRequest);
+            }, error -> Log.i("TAG", error.getMessage().concat(" fallo en consulta")));
+            requestQueue.add(jsonArrayRequest);
             spinner.setVisibility(View.VISIBLE);
-
         }
     }
+    /*
+    Método ConsultaMultiple: Utilizado para obtener información de la base de datos para aquellas consultas que tienen varios parámetros get:
+     */
 
     public void consultaMultiple(int variable1, int variable2, String nomVariable1, String nombVariable2, String url, String id_campo, String nombreCampo, String listaObjeto, String textoSpinner, Spinner spinner) {
-        // String URL1 = "http://localhost/obtenDatos.php?id=" + tipo;
-        //http://169.254.159.75/pruebasphp/obtenerDatosCopia.php?id=
-        String URL1 = url + "?" + nomVariable1 + "=" + variable1 + "&" + nombVariable2 + "=" + variable2;
 
+        String URL1 = URL_BASICA +url + "?" + nomVariable1 + "=" + variable1 + "&" + nombVariable2 + "=" + variable2;
+
+        //VACIO LA LISTA POR SI TUVIESE ALGUN REGISTRO PREVIO:
         if(devuelveListadoObjeto(listaObjeto).size()>0){
             devuelveListadoObjeto(listaObjeto).clear();
+            devuelveLista(listaObjeto).clear();
         }
 
+
         //PARA JSON DE VARIOS ARRAYS EN RESPUESTA:
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL1, null, response -> {
-            int names = response.length();
-            devuelveLista(textoSpinner).add("Elije opcion");
-            for (int i = 0; i < names; i++) {
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(Request.Method.GET, URL1, null, response -> {
+            for (int i = 0; i < response.length(); i++) {
                 try {
-                    JSONObject jsonObject = response.getJSONObject(String.valueOf(i + 1));
+                    JSONObject jsonObject = response.getJSONObject(i);
                     String id = jsonObject.getString(id_campo);
                     String marca = jsonObject.getString(nombreCampo);
                     Objeto objeto = new Objeto();
@@ -207,13 +142,12 @@ public class Vehiculos {
                     devuelveLista(textoSpinner).add(marca);
 
                 } catch (JSONException e) {
-                    Log.i("TAG", "Se ha producido un fallo pese que responde el Json");
+                    throw new RuntimeException(e);
                 }
             }
-            populateSpinner(spinner, textoSpinner);
-
-        }, error -> Toast.makeText(context.getApplicationContext(), "Esta entrando en error", Toast.LENGTH_SHORT).show());
-        requestQueue.add(jsonObjectRequest);
+            rellenaSpinner(spinner, textoSpinner);
+        }, error -> Log.i("TAG", error.getMessage().concat(" consulta multiple.")));
+        requestQueue.add(jsonArrayRequest);
         spinner.setVisibility(View.VISIBLE);
 
     }
@@ -221,11 +155,10 @@ public class Vehiculos {
     public int bucleBusqueda(ArrayList<Objeto> listado, AdapterView<?> adapterView) {
         int campo = 0;
         for (int y = 0; y < listado.size(); y++) {
-            String seleccionado = adapterView.getSelectedItem().toString();
+            String seleccionado=adapterView.getSelectedItem().toString();
             if (listado.get(y).getDescripcion().equalsIgnoreCase(seleccionado)) {
                 campo = listado.get(y).getId();
             }
-
         }
         return campo;
     }
@@ -260,7 +193,9 @@ public class Vehiculos {
         }
         return campo;
     }
-
+    /*
+    Método iniciarArrayListVehiculos(): Este método encapsula la inicialización de todos los arrays instanciándolos.
+     */
     private void iniciarArrayListVehiculos() {
         listadoMarcas = new ArrayList<>();
         listadoGeneracion = new ArrayList<>();
@@ -274,20 +209,7 @@ public class Vehiculos {
         generacion = new ArrayList<>();
         serie = new ArrayList<>();
         motor = new ArrayList<>();
-        combustible = new ArrayList<>();
-        cambio = new ArrayList<>();
 
-        combustible.add("Elija opcion");
-        combustible.add("Diesel");
-        combustible.add("Gasolina");
-        combustible.add("Hibrido");
-        combustible.add("Eléctrico");
-
-        cambio.add("Elija opcion");
-        cambio.add("Manual");
-        cambio.add("SemiAutomática");
-        cambio.add("Automática");
-        cambio.add("Robotizada");
     }
 
     public ArrayList<Objeto>devuelveListadoObjeto(String tipo){
@@ -325,29 +247,159 @@ public class Vehiculos {
             return cambio;
         }
     }
+    public void consultaPredictivo(int variable, String url, String id_campo, String nombreCampo, String listadoObjeto, String textoSpinner, AutoCompleteTextView autoCompleteTextView) {
+        String URL1 = URL_BASICA+ url;
+
+        if(devuelveListadoObjeto(listadoObjeto).size()>0){
+            devuelveListadoObjeto(listadoObjeto).clear();
+            devuelveLista(textoSpinner).clear();
+        }
+
+        if (variable!=9999) {
+
+            JsonArrayRequest jsonObjectRequest=new JsonArrayRequest(Request.Method.GET, URL1, null, response -> {
+                for(int i=0;i<response.length();i++){
+                    try {
+                        JSONObject jsonObject=response.getJSONObject(i);
+                        String id = jsonObject.getString(id_campo);
+                        String marca = jsonObject.getString(nombreCampo);
+                        Objeto objeto = new Objeto();
+                        objeto.setId(Integer.parseInt(id));
+                        objeto.setDescripcion(marca);
+                        devuelveListadoObjeto(listadoObjeto).add(objeto);
+                        devuelveLista(textoSpinner).add(marca);
+
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(context.getApplicationContext(),
+                        simple_dropdown_item_1line, devuelveLista(textoSpinner));
+                autoCompleteTextView.setAdapter(adapter);
+            }, error -> Log.e("TAG", error.getMessage()));
+            requestQueue.add(jsonObjectRequest);
+
+        } else {
+            if (variable == 9999) {
+                URL1 = url;
+            }
+            //PARA JSON DE VARIOS ARRAYS EN RESPUESTA:
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL1, null, response -> {
+                int names = response.length();
+                devuelveLista(textoSpinner).add("Elije opcion");
+                for (int i = 0; i < names; i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(String.valueOf(i + 1));
+                        String id = jsonObject.getString(id_campo);
+                        String marca = jsonObject.getString(nombreCampo);
+                        Objeto objeto = new Objeto();
+                        objeto.setId(Integer.parseInt(id));
+                        objeto.setDescripcion(marca);
+                        devuelveListadoObjeto(listadoObjeto).add(objeto);
+                        devuelveLista(textoSpinner).add(marca);
+                    } catch (JSONException e) {
+                        Log.i("TAG", "Se ha producido un fallo pese que responde el Json: ".concat(e.getMessage()));
+                    }
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(context.getApplicationContext(),
+                        simple_dropdown_item_1line, devuelveLista(textoSpinner));
+                autoCompleteTextView.setAdapter(adapter);
+            }, error -> Toast.makeText(context.getApplicationContext(), "Esta entrando en error", Toast.LENGTH_SHORT).show());
+            requestQueue.add(jsonObjectRequest);
+        }
+    }
+
+    public boolean compruebaDatos(){
+        boolean resultado=true;
+        String cadena="";
+        if(id_tipo==0){
+            cadena="Debe de introducir un tipo de vehiculo";
+            resultado=false;
+        }else if(id_marca==0){
+            cadena="Debe de introducir una marca";
+            resultado=false;
+        }else if(id_modelo==0){
+            cadena="Debe de introducir un modelo";
+            resultado=false;
+        }else if(id_generacion==0){
+            cadena="Debe de introducir una generación";
+            resultado=false;
+        }else if(id_serie==0){
+            cadena="Debe de introducir una serie";
+            resultado=false;
+        }else if(id_motor==0){
+            cadena="Debe de introducir una motorización";
+            resultado=false;
+        }else if(annioUser==null){
+            cadena="Debe de introducir el año de su vehiculo";
+            resultado=false;
+        }else if(kilometros==0){
+            cadena="Debe de introducir el kilometraje actual del vehiculo";
+            resultado=false;
+        }else if(matricula==null){
+            cadena="Debe de introducir la matricula de su vehículo";
+            resultado=false;
+        }else if(cambioUser==null){
+            cadena="Debe de introducir el tipo de cambio de su vehiculo";
+            resultado=false;
+        }else{
+            resultado=true;
+        }
+        if(!resultado){
+            Toast.makeText(context,cadena,Toast.LENGTH_SHORT).show();
+        }
+        return resultado;
+    }
+
 
     //Setters y getters:
-    public static String getCombustibleUser() {
-        return combustibleUser;
-    }
-
-    public static void setCombustibleUser(String combustibleUser) {
-        Vehiculos.combustibleUser = combustibleUser;
-    }
-
-    public static String getCambioUser() {
-        return cambioUser;
-    }
-
-    public static void setCambioUser(String cambioUser) {
-        Vehiculos.cambioUser = cambioUser;
-    }
-
-    public static String getAnnioUser() {
+    public String getAnnioUser() {
         return annioUser;
     }
 
-    public static void setAnnioUser(String annioUser) {
-        Vehiculos.annioUser = annioUser;
+    public void setAnnioUser(String annioUser) {
+        this.annioUser = annioUser;
     }
+
+    public String getCombustibleUser() {
+        return combustibleUser;
+    }
+
+    public void setCombustibleUser(String combustibleUser) {
+        this.combustibleUser = combustibleUser;
+    }
+
+    public String getCambioUser() {
+        return cambioUser;
+    }
+
+    public void setCambioUser(String cambioUser) {
+        this.cambioUser = cambioUser;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public static void setId_motor(int id_motor) {
+        Vehiculos.id_motor = id_motor;
+    }
+
+    public int getListadoMotor(){
+        return id_motor;
+    }
+
+    public void muestraListaMotor(){
+        if(!motor.isEmpty()){
+            for(int i=0;i<motor.size();i++){
+                Log.i("TAG", motor.get(i));
+            }
+        }
+    }
+
+
 }

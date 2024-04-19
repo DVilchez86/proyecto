@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cambios">
+        <item>Manual</item>
+        <item>Automático</item>
+        <item>Semiautomática</item>
+        <item>Robotizada</item>
+    </string-array>
+    <string-array name="combustibles">
+        <item>Diesel</item>
+        <item>Gasolina</item>
+        <item>Híbrido</item>
+        <item>Eléctrico</item>
+    </string-array>
+</resources>

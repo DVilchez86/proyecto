@@ -1,5 +1,7 @@
 package com.example.proyectodam;
 
+import static com.example.proyectodam.comons.Constants.RECUPERA_PASS;
+
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,8 +41,9 @@ public class RecuperaPass extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-
                 Intent intent=new Intent(RecuperaPass.this,MainActivity.class);
+                intent.putExtra(RECUPERA_PASS, true);
+                //TODO ... QUE SE LLEVE EN UN EXTRA UN INDICATIVO DE QUE LA CONTRASEÑA SE MODIFICÓ
                 startActivity(intent);
             }
         });

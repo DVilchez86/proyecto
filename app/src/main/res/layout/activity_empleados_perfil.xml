@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintPerfilInicial"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".empleados.empleadosPerfil">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolPerfil"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/bannertool"
+        app:layout_anchor="@+id/appBarLayout"
+        app:layout_anchorGravity="center"
+        app:navigationIcon="@drawable/iconomegacar"
+        app:navigationIconTint="@color/azulOscuro"
+        app:title="MI PERFIL"
+        app:titleMarginStart="130dp"
+        app:titleTextAppearance="@style/textViewMaterialTool"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="90dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivFoto"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@color/azulOscuro"
+                android:outlineSpotShadowColor="@color/azulOscuro"
+                android:src="@drawable/foto"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/constraintPerfil"
+                app:shapeAppearance="@style/imagenRedondeada"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelNombrePerfil"
+                style="@style/textViewMaterial"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/nombre"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivFoto"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etNombrePerfil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/azulOscuro"
+                android:textColorHint="@color/azulOscuro"
+                app:boxBackgroundColor="@color/white"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/azulOscuro"
+                app:endIconMode="clear_text"
+                app:errorContentDescription="Debe de introducir un correo válido"
+                app:errorEnabled="true"
+                app:errorTextColor="#BF0B0B"
+                app:hintTextColor="@color/azulOscuro"
+                app:layout_constraintBottom_toBottomOf="@+id/labelNombrePerfil"
+                app:layout_constraintLeft_toRightOf="@+id/labelNombrePerfil"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/labelNombrePerfil"
+                app:startIconDrawable="@drawable/identidad"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombre2Perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textAutoComplete"
+                    android:textColor="@color/azul"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelDniPerfil"
+                style="@style/textViewMaterial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/dni"
+                app:layout_constraintLeft_toLeftOf="@id/labelNombrePerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etNombrePerfil"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etDni1Perfil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/azulOscuro"
+                app:boxBackgroundColor="@color/white"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/azulOscuro"
+                app:endIconMode="clear_text"
+                app:errorContentDescription="Debe de introducir un correo válido"
+                app:errorEnabled="true"
+                app:errorTextColor="#BF0B0B"
+                app:hintTextColor="@color/azulOscuro"
+                app:layout_constraintBottom_toBottomOf="@+id/labelDniPerfil"
+                app:layout_constraintLeft_toLeftOf="@+id/etNombrePerfil"
+                app:layout_constraintLeft_toRightOf="@+id/labelDniPerfil"
+                app:layout_constraintRight_toRightOf="@id/etNombrePerfil"
+                app:layout_constraintTop_toTopOf="@+id/labelDniPerfil"
+                app:layout_constraintVertical_bias="0.4"
+                app:startIconDrawable="@drawable/security"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDni2Perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textAutoComplete"
+                    android:textColor="@color/azul"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelDireccionPerfil"
+                style="@style/textViewMaterial"
+                android:layout_marginTop="20dp"
+                android:text="@string/direccion"
+                app:fontFamily="@font/baumans"
+                app:layout_constraintLeft_toLeftOf="@id/labelNombrePerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etDni1Perfil"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etDireccionPerfil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/azulOscuro"
+                app:boxBackgroundColor="@color/white"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/azulOscuro"
+                app:endIconMode="clear_text"
+                app:errorContentDescription="Debe de introducir un correo válido"
+                app:errorEnabled="true"
+                app:errorTextColor="#BF0B0B"
+                app:hintTextColor="@color/azulOscuro"
+                app:layout_constraintBottom_toBottomOf="@+id/labelDireccionPerfil"
+                app:layout_constraintLeft_toLeftOf="@+id/etDni1Perfil"
+                app:layout_constraintLeft_toRightOf="@+id/labelNombrePerfil"
+                app:layout_constraintRight_toRightOf="@+id/etDni1Perfil"
+                app:layout_constraintTop_toTopOf="@+id/labelDireccionPerfil"
+                app:layout_constraintVertical_bias="0.4"
+                app:startIconDrawable="@drawable/home"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDireccion2Perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textAutoComplete"
+                    android:textColor="@color/azul"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelLocalidadPerfil"
+                style="@style/textViewMaterial"
+                android:layout_marginTop="20dp"
+                android:text="@string/localidad"
+                app:fontFamily="@font/baumans"
+                app:layout_constraintLeft_toLeftOf="@id/labelDireccionPerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etDireccionPerfil"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etLocalidadPerfil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/azulOscuro"
+                app:boxBackgroundColor="@color/white"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/azulOscuro"
+                app:endIconMode="clear_text"
+                app:errorContentDescription="Debe de introducir un correo válido"
+                app:errorEnabled="true"
+                app:errorTextColor="#BF0B0B"
+                app:hintTextColor="@color/azulOscuro"
+                app:layout_constraintBottom_toBottomOf="@+id/labelLocalidadPerfil"
+                app:layout_constraintLeft_toLeftOf="@+id/etDireccionPerfil"
+                app:layout_constraintLeft_toRightOf="@+id/labelLocalidadPerfil"
+                app:layout_constraintRight_toRightOf="@+id/etDireccionPerfil"
+                app:layout_constraintTop_toTopOf="@+id/labelLocalidadPerfil"
+                app:layout_constraintVertical_bias="0.4"
+                app:startIconDrawable="@drawable/localidad"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLocalidad2Perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textAutoComplete"
+                    android:textColor="@color/azul"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelCodPostalPerfil"
+                style="@style/textViewMaterial"
+                android:layout_marginTop="25dp"
+                android:text="@string/postal"
+                app:fontFamily="@font/baumans"
+                app:layout_constraintLeft_toLeftOf="@id/labelDireccionPerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etLocalidadPerfil"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etPostalPerfil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/azulOscuro"
+                app:boxBackgroundColor="@color/white"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/azulOscuro"
+                app:endIconMode="clear_text"
+                app:errorContentDescription="Debe de introducir un correo válido"
+                app:errorEnabled="true"
+                app:errorTextColor="#BF0B0B"
+                app:hintTextColor="@color/azulOscuro"
+                app:layout_constraintBottom_toBottomOf="@+id/labelCodPostalPerfil"
+                app:layout_constraintLeft_toLeftOf="@+id/etLocalidadPerfil"
+                app:layout_constraintLeft_toRightOf="@+id/labelCodPostalPerfil"
+                app:layout_constraintRight_toRightOf="@+id/etLocalidadPerfil"
+                app:layout_constraintTop_toTopOf="@+id/labelCodPostalPerfil"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPostal2Perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/azul"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelProvinciaPerfil"
+                style="@style/textViewMaterial"
+                android:layout_marginTop="25sp"
+                android:fontFamily="@font/baumans"
+                android:text="@string/provincia"
+                app:layout_constraintLeft_toLeftOf="@id/labelCodPostalPerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etPostalPerfil"
+                tools:ignore="MissingConstraints,TextContrastCheck" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etProvincia1Perfil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/azulOscuro"
+                app:boxBackgroundColor="@color/white"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/azulOscuro"
+                app:endIconMode="clear_text"
+                app:errorContentDescription="Debe de introducir un correo válido"
+                app:errorEnabled="true"
+                app:errorTextColor="#BF0B0B"
+                app:hintTextColor="@color/azulOscuro"
+                app:layout_constraintBottom_toBottomOf="@+id/labelProvinciaPerfil"
+                app:layout_constraintLeft_toLeftOf="@+id/etPostalPerfil"
+                app:layout_constraintRight_toRightOf="@+id/etPostalPerfil"
+                app:layout_constraintTop_toTopOf="@+id/labelProvinciaPerfil"
+                app:layout_constraintVertical_bias="0.4"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etProvincia2Perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textAutoComplete"
+                    android:textColor="@color/azul"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelPhonePerfil"
+                style="@style/textViewMaterial"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/baumans"
+                android:text="@string/telefono"
+                app:layout_constraintLeft_toLeftOf="@id/labelDireccionPerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etProvincia1Perfil"
+                tools:ignore="MissingConstraints,TextContrastCheck" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etPhonePerfil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/azulOscuro"
+                app:boxBackgroundColor="@color/white"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/azulOscuro"
+                app:endIconMode="clear_text"
+                app:errorContentDescription="Debe de introducir un correo válido"
+                app:errorEnabled="true"
+                app:errorTextColor="#BF0B0B"
+                app:hintTextColor="@color/azulOscuro"
+                app:layout_constraintBottom_toBottomOf="@+id/labelPhonePerfil"
+                app:layout_constraintLeft_toLeftOf="@+id/etProvincia1Perfil"
+                app:layout_constraintLeft_toRightOf="@+id/labelNombrePerfil"
+                app:layout_constraintRight_toRightOf="@+id/etProvincia1Perfil"
+                app:layout_constraintTop_toTopOf="@+id/labelPhonePerfil"
+                app:layout_constraintVertical_bias="0.4"
+                app:startIconDrawable="@drawable/phone"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPhone2Perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:textColor="@color/azul"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelMailPerfil"
+                style="@style/textViewMaterial"
+                android:layout_marginTop="23sp"
+                android:text="@string/email"
+                app:layout_constraintLeft_toLeftOf="@id/labelDireccionPerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etPhonePerfil"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etMailPerfil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/azulOscuro"
+                app:boxBackgroundColor="@color/white"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/azulOscuro"
+                app:endIconMode="clear_text"
+                app:errorContentDescription="Debe de introducir un correo válido"
+                app:errorEnabled="true"
+                app:errorTextColor="#BF0B0B"
+                app:hintTextColor="@color/azulOscuro"
+                app:layout_constraintBottom_toBottomOf="@+id/labelMailPerfil"
+                app:layout_constraintLeft_toRightOf="@+id/labelNombrePerfil"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/labelMailPerfil"
+                app:layout_constraintVertical_bias="0.4"
+                app:startIconDrawable="@drawable/email"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMail2Perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/azul"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelPasswordPerfil"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/baumans"
+                android:text="@string/password"
+                android:textColor="@color/azul"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/baumans"
+                app:layout_constraintLeft_toLeftOf="@id/labelDireccionPerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etMailPerfil"
+                tools:ignore="MissingConstraints,TextContrastCheck,TextSizeCheck" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etPasswordPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="@string/introducePass"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="@+id/etMailPerfil"
+                app:layout_constraintLeft_toRightOf="@+id/labelPasswordPerfil"
+                app:layout_constraintRight_toRightOf="@id/etMailPerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etMailPerfil"
+                app:passwordToggleDrawable="@drawable/icon_selector"
+                app:passwordToggleTint="@color/azul"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword2Perfil"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:autofillHints="password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/azul"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/etMail1"
+                     />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etPasswordRepitePerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/etPasswordPerfil"
+                app:layout_constraintLeft_toRightOf="@+id/labelPasswordPerfil"
+                app:layout_constraintLeft_toLeftOf="@+id/etPasswordPerfil"
+                app:layout_constraintRight_toRightOf="@id/etPasswordPerfil"
+                android:layout_marginTop="5dp"
+                android:hint="@string/repitePass"
+                app:passwordToggleDrawable="@drawable/icon_selector"
+                app:passwordToggleEnabled="true"
+                app:boxBackgroundColor="@color/colorTransparente"
+                app:passwordToggleTint="@color/azul"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword2Repite"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:autofillHints="password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/azul"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/etMail1"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/azulOscuro"
+                android:theme="@style/botonAzul"
+                android:max="100"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="@+id/etPasswordRepitePerfil"
+                android:layout_marginTop="70dp"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btEditarPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:theme="@style/botonAzul"
+                android:background="@drawable/botonazulredondo"
+                android:text="@string/botonEditar"
+                app:layout_constraintTop_toBottomOf="@+id/progressPerfil"
+                app:layout_constraintLeft_toLeftOf="@+id/labelPasswordPerfil"
+                tools:ignore="MissingConstraints,VisualLintOverlap" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btGrabarPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:theme="@style/botonAzul"
+                android:background="@drawable/botonazulredondo"
+                android:text="@string/botonDatosPerfil"
+                app:layout_constraintLeft_toRightOf="@+id/btEditarPerfil"
+                app:layout_constraintRight_toLeftOf="@+id/btVolverPerfil"
+                app:layout_constraintRight_toRightOf="@+id/btVolverPerfil"
+                app:layout_constraintTop_toBottomOf="@+id/progressPerfil"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btVolverPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:theme="@style/botonAzul"
+                android:background="@drawable/botonazulredondo"
+                android:text="@string/botonVolver"
+                app:layout_constraintTop_toBottomOf="@+id/progressPerfil"
+                app:layout_constraintRight_toRightOf="@+id/etPasswordPerfil"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

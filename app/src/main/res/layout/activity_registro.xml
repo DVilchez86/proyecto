@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo"
+    android:background="@drawable/regfondoalternativo"
     tools:context=".Registro">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -39,53 +39,48 @@
             android:background="#000"
             tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/labelNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/nombre"
-        android:textColor="@color/azul"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:fontFamily="@font/baumans"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/margin1"
-        tools:ignore="MissingConstraints" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelNombre"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/nombre"
+            style="@style/textViewMaterial"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/margin1"
+            tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/etNombre1"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/labelNombre"
-        app:layout_constraintRight_toRightOf="parent"
-        app:errorEnabled="true"
-        app:errorContentDescription="Debe de introducir un correo válido"
-        app:errorTextColor="#BF0B0B"
-        app:endIconMode="clear_text"
-        android:textColorHint="@color/white"
-        app:startIconDrawable="@drawable/identidad"
-        app:hintTextColor="@color/white"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/white"
-        app:boxBackgroundColor="@color/colorTransparente"
-        app:layout_constraintTop_toTopOf="@+id/labelNombre"
-        app:layout_constraintBottom_toBottomOf="@+id/labelNombre"
-        tools:ignore="MissingConstraints">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etNombre2"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etNombre1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:inputType="textAutoComplete"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            tools:ignore="SpeakableTextPresentCheck" />
+            app:layout_constraintLeft_toRightOf="@+id/labelNombre"
+            app:layout_constraintRight_toRightOf="parent"
+            app:errorEnabled="true"
+            app:errorContentDescription="Debe de introducir un correo válido"
+            app:errorTextColor="#BF0B0B"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            app:startIconDrawable="@drawable/identidad"
+            app:hintTextColor="@color/white"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:layout_constraintTop_toTopOf="@+id/labelNombre"
+            app:layout_constraintBottom_toBottomOf="@+id/labelNombre"
+            tools:ignore="MissingConstraints">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNombre2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textAutoComplete"
+                android:textColor="@color/azul"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <RadioGroup
             android:id="@+id/rgRegistro"
@@ -118,26 +113,21 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/baumans"
-                 />
+                />
 
 
         </RadioGroup>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/labelDni"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/dni"
-        android:textColor="@color/azul"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/baumans"
-        android:layout_marginTop="30dp"
-        app:fontFamily="@font/baumans"
-        app:layout_constraintLeft_toLeftOf="@id/labelNombre"
-        app:layout_constraintTop_toBottomOf="@+id/rgRegistro"
-        tools:ignore="MissingConstraints"
- />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dni"
+            style="@style/textViewMaterial"
+            app:layout_constraintLeft_toLeftOf="@id/labelNombre"
+            app:layout_constraintTop_toBottomOf="@+id/rgRegistro"
+            tools:ignore="MissingConstraints"
+            />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etDni1"
@@ -149,7 +139,7 @@
             app:errorTextColor="#BF0B0B"
             app:endIconMode="clear_text"
             android:textColorHint="@color/white"
-            app:hintTextColor="@color/white"
+            app:hintTextColor="@color/azul"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/white"
             app:boxBackgroundColor="@color/colorTransparente"
@@ -165,7 +155,7 @@
                 android:id="@+id/etDni2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/azul"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:inputType="textAutoComplete"
@@ -173,13 +163,8 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/labelDireccion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/direccion"
-            android:textColor="@color/azul"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/baumans"
+            style="@style/textViewMaterial"
             android:layout_marginTop="15dp"
             app:fontFamily="@font/baumans"
             app:layout_constraintLeft_toLeftOf="@id/labelNombre"
@@ -213,7 +198,7 @@
                 android:id="@+id/etDireccion2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/azul"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:inputType="textAutoComplete"
@@ -221,13 +206,8 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/labelLocalidad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/localidad"
-            android:textColor="@color/azul"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/baumans"
+            style="@style/textViewMaterial"
             android:layout_marginTop="15dp"
             app:fontFamily="@font/baumans"
             app:layout_constraintLeft_toLeftOf="@id/labelDireccion"
@@ -262,7 +242,7 @@
                 android:id="@+id/etLocalidad2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/azul"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:inputType="textAutoComplete"
@@ -270,13 +250,8 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/labelCodPostal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/postal"
-            android:textColor="@color/azul"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/baumans"
+            style="@style/textViewMaterial"
             android:layout_marginTop="25dp"
             app:fontFamily="@font/baumans"
             app:layout_constraintLeft_toLeftOf="@id/labelDireccion"
@@ -309,7 +284,7 @@
                 android:id="@+id/etPostal2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/azul"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:inputType="number"
@@ -319,15 +294,10 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/labelProvincia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginTop="25sp"
             android:fontFamily="@font/baumans"
             android:text="@string/provincia"
-            android:textColor="@color/azul"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/baumans"
+            style="@style/textViewMaterial"
             app:layout_constraintLeft_toLeftOf="@id/labelCodPostal"
             app:layout_constraintTop_toBottomOf="@+id/etPostal1"
             tools:ignore="MissingConstraints,TextContrastCheck" />
@@ -360,21 +330,16 @@
                 android:inputType="textAutoComplete"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:textColor="@color/white"
+                android:textColor="@color/azul"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/labelPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:fontFamily="@font/baumans"
             android:text="@string/telefono"
-            android:textColor="@color/azul"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/baumans"
+            style="@style/textViewMaterial"
             app:layout_constraintLeft_toLeftOf="@id/labelDireccion"
             app:layout_constraintTop_toBottomOf="@+id/etProvincia1"
             tools:ignore="MissingConstraints,TextContrastCheck" />
@@ -406,7 +371,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
-                android:textColor="@color/white"
+                android:textColor="@color/azul"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -414,15 +379,9 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/labelMail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/email"
-            android:textColor="@color/azul"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/baumans"
             android:layout_marginTop="23sp"
-            app:fontFamily="@font/baumans"
+            style="@style/textViewMaterial"
             app:layout_constraintLeft_toLeftOf="@id/labelDireccion"
             app:layout_constraintTop_toBottomOf="@+id/etPhone1"
             tools:ignore="MissingConstraints"
@@ -454,7 +413,7 @@
                 android:id="@+id/etMail2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/azul"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:inputType="textEmailAddress"
@@ -484,8 +443,8 @@
             app:layout_constraintLeft_toLeftOf="@+id/etMail1"
             app:layout_constraintRight_toRightOf="@id/etMail1"
             app:layout_constraintTop_toTopOf="@+id/labelPassword"
-            app:layout_constraintBottom_toBottomOf="@+id/labelPassword"
             android:layout_marginTop="5dp"
+            android:hint="@string/introducePass"
             app:passwordToggleDrawable="@drawable/icon_selector"
             app:passwordToggleEnabled="true"
             app:boxBackgroundColor="@color/colorTransparente"
@@ -499,7 +458,35 @@
                 android:layout_marginTop="20dp"
                 android:autofillHints="password"
                 android:inputType="textPassword"
-                android:textColor="@color/white"
+                android:textColor="@color/azul"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/etMail1"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPasswordRepite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/etPassword1"
+            app:layout_constraintLeft_toRightOf="@+id/labelPassword"
+            app:layout_constraintLeft_toLeftOf="@+id/etPassword1"
+            app:layout_constraintRight_toRightOf="@id/etPassword1"
+            android:layout_marginTop="5dp"
+            android:hint="@string/repitePass"
+            app:passwordToggleDrawable="@drawable/icon_selector"
+            app:passwordToggleEnabled="true"
+            app:boxBackgroundColor="@color/colorTransparente"
+            app:passwordToggleTint="@color/azul"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword2Repite"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:autofillHints="password"
+                android:inputType="textPassword"
+                android:textColor="@color/azul"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@+id/etMail1"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -541,7 +528,7 @@
             android:id="@+id/spTipoVehiculo"
             android:layout_width="115dp"
             android:layout_height="48dp"
-            android:textColor="@color/white"
+            android:textColor="@color/azul"
             android:textSize="15sp"
             app:layout_constraintLeft_toRightOf="@+id/lbTipoVehiculo"
             app:layout_constraintRight_toRightOf="@id/lbMarcaVehiculo"
@@ -571,8 +558,9 @@
             android:hint="Introduce marca"
             android:textColorHint="@color/azul"
             app:fontFamily="@font/baumans"
-            android:textColor="@color/black"
+            android:textColor="@color/azul"
             android:textSize="15sp"
+            android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/lbMarcaVehiculo"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/lbMarcaVehiculo"
@@ -681,6 +669,7 @@
             android:hint="@string/lbAnnio"
             android:textColorHint="@color/azul"
             android:textSize="15sp"
+            android:textStyle="bold"
             android:textColor="@color/azul"
             app:layout_constraintLeft_toRightOf="@+id/lbAnnioVehiculo"
             app:layout_constraintLeft_toLeftOf="@+id/etMarcaVehiculo"
@@ -729,6 +718,8 @@
             tools:ignore="MissingConstraints,TextContrastCheck" />
         <Spinner
             android:id="@+id/spCombustibleVehiculo"
+            android:entries="@array/combustibles"
+            android:entryValues="@array/combustibles"
             android:layout_width="100dp"
             android:layout_height="48dp"
             android:visibility="invisible"
@@ -758,6 +749,8 @@
             android:id="@+id/spCambioVehiculo"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
+            android:entries="@array/cambios"
+            android:entryValues="@array/cambios"
             android:visibility="invisible"
             android:spinnerMode="dialog"
             android:textColor="@color/azul"

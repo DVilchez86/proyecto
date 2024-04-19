@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:id="@+id/drawerLayout"
+    android:background="@color/naranja"
+    android:orientation="vertical"
+    tools:context=".cliente.ActivityInicioCliente">
+
+    <ScrollView
+        android:id="@+id/scrollEmplado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lyConstAverias"
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/toolbar2"
+                app:title=" "
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:background="@color/azulClaro"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linear1Empleado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+                android:gravity="center"
+                tools:ignore="MissingConstraints">
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivSaludo"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/holatransparente"
+                    app:shapeAppearanceOverlay="@style/shapeRound"
+                    tools:ignore="ImageContrastCheck" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvNombreCliente"
+                    style="@style/textViewMaterialTitulos"
+                    android:text="susana"
+                    app:fontFamily="@font/racing_sans_one"
+                    android:textSize="35sp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:shadowColor="#00BCD4"
+                    android:shadowDx="4"
+                    android:shadowDy="2"
+                    android:shadowRadius="1.9"
+                    tools:ignore="HardcodedText,MissingConstraints" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <GridLayout
+                android:id="@+id/gridEmpleado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                app:layout_constraintTop_toBottomOf="@+id/linear1Empleado"
+                android:rowCount="3"
+                android:columnCount="2"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                tools:ignore="MissingConstraints">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card1"
+                    android:layout_width="150sp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="23dp"
+                    android:backgroundTint="@color/blancoRoto"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/cardImagen1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toEndOf="@+id/inter"
+                        android:backgroundTint="@color/blancoRoto"
+                        android:src="@drawable/perfil"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvOpcion1"
+                        style="@style/textViewMaterialMenus"
+                        android:text="@string/miPerfil"
+                        android:textColor="#1976D2" />
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card2"
+                    android:layout_width="150sp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="23dp"
+                    android:backgroundTint="@color/blancoRoto"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    tools:ignore="MissingConstraints">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/cardImagen2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toEndOf="@+id/inter"
+                        android:backgroundTint="@color/blancoRoto"
+                        android:src="@drawable/calendario"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvOpcion2"
+                        style="@style/textViewMaterialMenus"
+                        android:text="@string/citas"
+                        android:textColor="#1976D2" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card3"
+                    android:layout_width="150sp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/blancoRoto"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    tools:ignore="MissingConstraints,TextSizeCheck">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/cardImagen3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toEndOf="@+id/inter"
+                        android:backgroundTint="@color/blancoRoto"
+                        android:src="@drawable/orden"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvOpcion3"
+                        style="@style/textViewMaterialMenus"
+                        android:text="@string/ordenes"
+                        android:textColor="#1976D2" />
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card4"
+                    android:layout_width="150sp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/blancoRoto"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    tools:ignore="MissingConstraints">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/cardImagen4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toEndOf="@+id/inter"
+                        android:backgroundTint="@color/blancoRoto"
+                        android:src="@drawable/admon"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvOpcion4"
+                        style="@style/textViewMaterialMenus"
+                        android:text="@string/documentos"
+                        android:textColor="#1976D2" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card5"
+                    android:layout_width="150sp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/blancoRoto"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    tools:ignore="MissingConstraints,TextSizeCheck">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/cardImagen5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_toEndOf="@+id/inter"
+                        android:backgroundTint="@color/blancoRoto"
+                        android:src="@drawable/empleados" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvOpcion5"
+                        style="@style/textViewMaterialMenus"
+                        android:text="@string/empleados"
+                        android:textColor="#1976D2" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card6"
+                    android:layout_width="150sp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/blancoRoto"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    tools:ignore="MissingConstraints,TextSizeCheck">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/cardImagen6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_toEndOf="@+id/inter"
+                        android:backgroundTint="@color/blancoRoto"
+                        android:src="@drawable/informe"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvOpcion6"
+                        style="@style/textViewMaterialMenus"
+                        android:text="@string/listados"
+                        android:textColor="#1976D2" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card7"
+                    android:layout_width="150sp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/blancoRoto"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    tools:ignore="MissingConstraints">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/cardImagen7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="80dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="25dp"
+                        android:layout_toEndOf="@+id/inter"
+                        android:backgroundTint="@color/blancoRoto"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/descuento"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvOpcion7"
+                        style="@style/textViewMaterialMenus"
+                        android:text="@string/promocionar"
+                        android:textColor="#1976D2" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card8"
+                    android:layout_width="150sp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/blancoRoto"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    tools:ignore="MissingConstraints,TextSizeCheck">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/cardImagen8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toEndOf="@+id/inter"
+                        android:backgroundTint="@color/blancoRoto"
+                        android:src="@drawable/chat"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvOpcion8"
+                        style="@style/textViewMaterialMenus"
+                        android:text="@string/comunicaciones"
+                        android:textColor="#1976D2" />
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/derechos"
+                style="@style/textViewMaterial"
+                app:layout_constraintTop_toBottomOf="@+id/gridEmpleado"
+                android:text="@string/derechos"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/nav_view"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu"
+        app:itemIconTint="@color/azulOscuro"
+        app:itemTextColor="@color/azulOscuro"
+        app:itemTextAppearance="@style/textViewMaterial"
+        tools:ignore="VisualLintBounds" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

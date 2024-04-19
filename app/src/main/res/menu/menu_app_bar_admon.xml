@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menuPrincipal"
+        android:title="@string/menuPpal"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menuCitas"
+        android:title="@string/menuCitas"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menuOrdenes"
+        android:title="@string/menuOrdenes"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menuDocumentos"
+        android:title="@string/menuDocumentos"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menuEmpleados"
+        android:title="@string/menuEmpleados"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menuListados"
+        android:title="@string/menuListados"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menuPromociones"
+        android:title="@string/menuPromociones"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menuComunicaciones"
+        android:title="@string/menuComunicaciones"
+        app:showAsAction="never"/>
+</menu>

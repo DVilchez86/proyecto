@@ -1,0 +1,102 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ProyectoDam" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/azulOscuro</item>
+        <item name="colorPrimaryVariant">@color/azul</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/naranja</item>
+        <item name="colorSecondaryVariant">@color/naranja</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/azulOscuro</item>
+    </style>
+
+    <style name="Theme.ProyectoDam" parent="Base.Theme.ProyectoDam" />
+    <style name="imagenRedondeada" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="shapeRound" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <item name="colorPrimary">@color/white</item>
+    <item name="colorPrimaryDark">@color/black</item>
+    <item name="colorAccent">@color/white</item>
+    <item name="drawerArrowStyle">@style/DrawerIcon</item>
+    </style>
+    <style name="DrawerIcon" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/azulClaro</item>
+    </style>
+    <style name="textViewMaterial" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/azul</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/baumans</item>
+    </style>
+    <style name="textViewMaterialTitulos" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/azulOscuro</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+    <style name="textViewMaterialMenus" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#093355</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/baumans</item>
+        <item name="android:layout_gravity">bottom|center</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:shadowColor">#30A3A3</item>
+        <item name="android:shadowDx">4</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">1.5</item>
+    </style>
+    <style name="textViewMaterialTool" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#093355</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/baumans</item>
+        <item name="android:layout_gravity">bottom|center</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:shadowColor">#30A3A3</item>
+        <item name="android:shadowDx">4</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">1.5</item>
+    </style>
+    <style name="botonAzul" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/azulBotones</item>
+        <item name="colorPrimaryVariant">@color/naranja</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/naranja</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#093355</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/baumans</item>
+        <item name="android:layout_gravity">bottom|center</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:shadowColor">#FFC107</item>
+        <item name="android:shadowDx">5</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">2.5</item>
+
+    </style>
+
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">869945392879</string>
+    <string name="google_api_key" translatable="false">AIzaSyC1RrMBqwkSda1wS52yndg0wS_pdaOG_1w</string>
+    <string name="google_app_id" translatable="false">1:869945392879:android:8822819f33fd51494ee51a</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC1RrMBqwkSda1wS52yndg0wS_pdaOG_1w</string>
+    <string name="google_storage_bucket" translatable="false">proyectodam-eb95f.appspot.com</string>
+    <string name="project_id" translatable="false">proyectodam-eb95f</string>
+</resources>
